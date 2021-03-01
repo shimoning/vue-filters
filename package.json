@@ -1,0 +1,29 @@
+{
+  "name": "vue-filters",
+  "version": "0.0.1",
+  "description": "Filters for Vue",
+  "author": "Shimon Haga",
+  "keywords": [
+    "vue",
+    "filter"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint -c .eslintrc.json --ext .js src --quiet",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@vue/cli": "^4.5.11",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.4"
+  }
+}
