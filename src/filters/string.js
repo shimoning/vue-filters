@@ -4,13 +4,13 @@ const nl2br = function nl2br(value) {
 
 const lowercase = function(value) {
   return (value || value === 0)
-    ? value.toString().toLowerCase()
+    ? String(value).toLowerCase()
     : ''
 }
 
 const uppercase = function(value) {
   return (value || value === 0)
-    ? value.toString().toUpperCase()
+    ? String(value).toUpperCase()
     : ''
 }
 
@@ -18,8 +18,8 @@ const capitalize = function(value) {
   if (!value && value !== 0) {
     return ''
   }
-  return value.toString().charAt(0).toUpperCase() +
-    value.toString().slice(1).toLowerCase()
+  value = String(value)
+  return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
 }
 
 export {

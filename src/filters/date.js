@@ -82,6 +82,9 @@ const shortenTime = function(his, padding = false) {
   if (!his) {
     return his
   }
+  if (String(his).indexOf(':') === -1) {
+    return his
+  }
   const [h, m] = his.split(':')
   return (padding ? zero_padding(h, 2) : h) + ':' + zero_padding(m, 2)
 }

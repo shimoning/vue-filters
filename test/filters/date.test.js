@@ -256,5 +256,9 @@ describe('Test of filters about date', () => {
     it('String broken to zero padded', () => {
       expect(shortenTime('6:7:8', true)).toBe('06:07')
     })
+
+    it('No time string', () => {
+      expect(shortenTime('あいうえお')).toBe('あいうえお')
+    })
   })
 })
