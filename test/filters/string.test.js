@@ -1,30 +1,64 @@
 import { nl2br, lowercase, uppercase, capitalize } from 'src/filters/string'
 
 describe('Test of filters about string', () => {
-  it('nl2br', () => {
-    expect(nl2br(`あいうえお
-かきくけこ`)).toBe('あいうえお<br>かきくけこ')
-    expect(nl2br(`
+  describe('nl2br', () => {
+    it('Braking simply', () => {
+      const testString = `あいうえお
+かきくけこ`
+      expect(nl2br(testString)).toBe('あいうえお<br>かきくけこ')
+    })
+
+    it('Breaking first line and last line', () => {
+      const testString = `
 ABCD
 EFG
-`)).toBe('<br>ABCD<br>EFG<br>')
+`
+      expect(nl2br(testString)).toBe('<br>ABCD<br>EFG<br>')
+    })
+
+    it('No breaking', () => {
+      expect(lowercase('あいうえお')).toBe('あいうえお')
+    })
+  })
+  describe('lowercase', () => {
+    it('All uppercase', () => {
+      expect(lowercase('ABC')).toBe('abc')
+    })
+
+    it('Second character only', () => {
+      expect(lowercase('eFg')).toBe('efg')
+    })
+
+    it('Japanese', () => {
+      expect(lowercase('あいうえお')).toBe('あいうえお')
+    })
   })
 
-  it('lowercase', () => {
-    expect(lowercase('ABC')).toBe('abc')
-    expect(lowercase('eFg')).toBe('efg')
-    expect(lowercase('あいうえお')).toBe('あいうえお')
+  describe('uppercase', () => {
+    it('All lowercase', () => {
+      expect(uppercase('abc')).toBe('ABC')
+    })
+
+    it('Second character only', () => {
+      expect(uppercase('eFg')).toBe('EFG')
+    })
+
+    it('Japanese', () => {
+      expect(lowercase('あいうえお')).toBe('あいうえお')
+    })
   })
 
-  it('uppercase', () => {
-    expect(uppercase('abc')).toBe('ABC')
-    expect(uppercase('eFg')).toBe('EFG')
-    expect(lowercase('あいうえお')).toBe('あいうえお')
-  })
+  describe('capitalize', () => {
+    it('All lowercase', () => {
+      expect(capitalize('abc')).toBe('Abc')
+    })
 
-  it('capitalize', () => {
-    expect(capitalize('abc')).toBe('Abc')
-    expect(capitalize('eFg')).toBe('Efg')
-    expect(lowercase('あいうえお')).toBe('あいうえお')
+    it('Second character is uppercase', () => {
+      expect(capitalize('eFg')).toBe('Efg')
+    })
+
+    it('Japanese', () => {
+      expect(lowercase('あいうえお')).toBe('あいうえお')
+    })
   })
 })
