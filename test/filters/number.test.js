@@ -111,6 +111,10 @@ describe('Test of filters about number', () => {
       expect(zero_padding(-123, 5)).toBe('-0123')
     })
 
+    it('Over length', () => {
+      expect(zero_padding(1234, 2)).toBe('1234')
+    })
+
     it('Empty', () => {
       expect(zero_padding('', 2)).toBe('00')
     })

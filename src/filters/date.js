@@ -1,4 +1,6 @@
 import dayjs from 'dayjs'
+import 'dayjs/locale/ja';
+dayjs.locale('ja');
 import { zero_padding } from './number'
 
 const isDayjsObject = function(value) {
@@ -23,11 +25,15 @@ const clock2number = function(value) {
   return h * 60 + m * 1
 }
 
-const date2ymd = function(value) {
+const date2ymd = function(value, padding = false, separator = '-') {
   if (!value) {
     return ''
   }
-  return formatter(value, 'YYYY-M-D')
+  return formatter(value,
+    padding
+      ? `YYYY${separator}MM${separator}DD`
+      : `YYYY${separator}M${separator}D`,
+  )
 }
 
 const date2y = function(value) {
@@ -37,18 +43,18 @@ const date2y = function(value) {
   return formatter(value, 'YYYY')
 }
 
-const date2m = function(value) {
+const date2m = function(value, padding = false) {
   if (!value) {
     return ''
   }
-  return formatter(value, 'M')
+  return formatter(value, padding ? 'MM' : 'M')
 }
 
-const date2d = function(value) {
+const date2d = function(value, padding = false) {
   if (!value) {
     return ''
   }
-  return formatter(value, 'D')
+  return formatter(value, padding ? 'DD' : 'D')
 }
 
 const date2w = function(value) {
@@ -58,26 +64,26 @@ const date2w = function(value) {
   return formatter(value, 'dd')
 }
 
-const date2his = function(value) {
+const date2his = function(value, padding = false) {
   if (!value) {
     return ''
   }
-  return formatter(value, 'HH:mm:ss')
+  return formatter(value, padding ? 'HH:mm:ss' : 'H:m:s')
 }
 
-const date2hi = function(value) {
+const date2hi = function(value, padding = false) {
   if (!value) {
     return ''
   }
-  return formatter(value, 'HH:mm')
+  return formatter(value, padding ? 'HH:mm' : 'H:m')
 }
 
-const shortenTime = function(his) {
+const shortenTime = function(his, padding = false) {
   if (!his) {
     return his
   }
-  const [hour, minute] = his.split(':')
-  return hour + ':' + minute
+  const [h, m] = his.split(':')
+  return (padding ? zero_padding(h, 2) : h) + ':' + zero_padding(m, 2)
 }
 
 export {

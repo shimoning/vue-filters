@@ -27,7 +27,12 @@ const zero_padding = function(value, length) {
     value = String(value).slice(1)
   }
 
-  return (negative ? '-' : '') +  ('0'.repeat(length) + String(value)).slice(-length)
+  value = String(value)
+  if (value.length > length) {
+    return value
+  }
+
+  return (negative ? '-' : '') +  ('0'.repeat(length) + value).slice(-length)
 }
 
 export {
