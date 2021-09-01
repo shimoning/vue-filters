@@ -1,6 +1,6 @@
 {
   "name": "@shimoning/vue-filters",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Filters for Vue",
   "author": "Shimon Haga",
   "keywords": [
@@ -8,6 +8,14 @@
     "filter"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shimoning/vue-filters.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shimoning/vue-filters/issues"
+  },
+  "homepage": "https://github.com/shimoning/vue-filters#readme",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint -c .eslintrc.json --ext .js src --quiet",
@@ -24,6 +32,8 @@
     "jest": "^26.6.3"
   },
   "dependencies": {
-    "dayjs": "^1.10.4"
+    "dayjs": "^1.10.4",
+    "eslint-plugin-jest": "^24.4.2",
+    "eslint-plugin-vue": "^7.18.0"
   }
 }

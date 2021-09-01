@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
-import 'dayjs/locale/ja';
-dayjs.locale('ja');
+import 'dayjs/locale/ja'
+dayjs.locale('ja')
 import { zero_padding } from './number'
 
 const isDayjsObject = function(value) {
